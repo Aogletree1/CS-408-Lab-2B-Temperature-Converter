@@ -50,35 +50,30 @@ EditText valueReportCelsius;
 
 
 
-
-                if(valueReportFahrenheit == null && valueReportCelsius == null){
-
-
-                }
-
-
                 if(valueReportFahrenheit != null){
+                    try {
+
+                        fahrenheit = Float.parseFloat(strFahrenheit);
+
+                        celsius = ((fahrenheit - 32) * 5 / 9);
 
 
-                    fahrenheit = Float.parseFloat(strFahrenheit);
+                        binding.reportCelsius.setText(String.valueOf(df.format(celsius)));
+                        binding.reportFahrenheit.setText(String.valueOf(df.format(fahrenheit)));
+                    }
+                    catch (Exception e){
+                        celsius = Float.parseFloat(strCelsius);
 
-                    celsius = ((fahrenheit - 32) * 5/9);
+                        fahrenheit = (celsius * 9/5) + 32;
 
-
-                    binding.reportCelsius.setText(String.valueOf(df.format(celsius)));
-                    binding.reportFahrenheit.setText(String.valueOf(df.format(fahrenheit)));
-
+                        binding.reportCelsius.setText(String.valueOf(df.format(celsius)));
+                        binding.reportFahrenheit.setText(String.valueOf(df.format(fahrenheit)));
+                    }
 
 
                 }
 
-                if(valueReportFahrenheit == null) {
 
-
-                    //fahrenheit = (celsius * 9/5) + 32;
-
-
-                }
 
 
 
